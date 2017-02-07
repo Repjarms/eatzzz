@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { EatsiteDetailsPage } from '../eatsite-details/eatsite-details';
+import { CartPage } from '../cart/cart';
 
 import { Eatsite } from '../../models/eatsite';
 
@@ -29,6 +30,10 @@ export class EatsitesPage {
   // Go to specific page for an eatsite
   goToDetails(name: string, id: number) {
     this.navCtrl.push(EatsiteDetailsPage, {name, id});
+  }
+
+  goToCart() {
+    this.navCtrl.push(CartPage);
   }
 
 }

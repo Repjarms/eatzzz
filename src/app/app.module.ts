@@ -6,6 +6,7 @@ import { HomePage } from '../pages/home/home';
 import { EatsitesPage } from '../pages/eatsites/eatsites';
 import { EatsiteDetailsPage } from '../pages/eatsite-details/eatsite-details';
 import { RegisterPage } from '../pages/register/register';
+import { CartPage } from '../pages/cart/cart';
 
 import { GetEatsites } from '../providers/get-eatsites';
 
@@ -15,7 +16,8 @@ import { GetEatsites } from '../providers/get-eatsites';
     HomePage,
     EatsitesPage,
     EatsiteDetailsPage,
-    RegisterPage
+    RegisterPage,
+    CartPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -26,7 +28,8 @@ import { GetEatsites } from '../providers/get-eatsites';
     HomePage,
     EatsitesPage,
     EatsiteDetailsPage,
-    RegisterPage
+    RegisterPage,
+    CartPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, GetEatsites]
 })

@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Dish } from '../../models/dish';
 
 import { GetEatsites } from '../../providers/get-eatsites';
+import { CartPage } from '../cart/cart';
 
 @Component({
   selector: 'page-eatsite-details',
@@ -20,11 +21,14 @@ export class EatsiteDetailsPage {
     this.id = navParams.get('id'); // Get id from navParams
 
     getEatsites.loadMenu().subscribe(menu => {
-      this.menu = menu;
+      this.menu = menu; // Load array of observables of type Dish[]
     });
   }
 
   ionViewDidLoad() { }
 
+  goToCart() {
+    this.navCtrl.push(CartPage);
+  }
 
 }
