@@ -1,0 +1,86 @@
+$light: #387ef5;
+$dark: #222;
+
+page-home {
+  // Flex alignment of children
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  .hero {
+    // Flex alignment of self
+    flex: 0 1 100%;
+    height: 80%;
+
+    // Flex alignment of children
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    // Color scheme
+    background: $light;
+    color: white;
+
+  }
+
+  .homepage-cta {
+    // Flex alignment of self
+    flex: 0 1 100%;
+    height: 20%;
+
+    // Flex alignment of children
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+
+    // Color scheme
+    background: $dark;
+
+    // Formatting of button children
+    button {
+      margin: 0 5px 0 5px;
+    }
+  }
+
+  .hero-image {
+    // Flex alignment of self
+    flex: 0 1 100%;
+    height: 70%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-image-avatar {
+    flex: 0 1 70%;
+    height: 70%;
+    background: white;
+
+    border-radius: 50%;
+  }
+
+  .hero-tagline {
+    // Flex alignment of self
+    flex: 0 1 100%;
+    height: 30%;
+
+    // Flex alignment of children
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+}

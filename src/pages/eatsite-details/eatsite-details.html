@@ -1,0 +1,20 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let dish of menu">
+      <div class="dish-details">
+        {{ dish.name }}
+        {{ dish.price }}
+        {{ dish.recommended }}
+      </div>
+    </button>
+  </ion-list>
+</ion-content>

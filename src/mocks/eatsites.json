@@ -1,0 +1,12 @@
+{
+  "data": [
+    {
+      "id": 0,
+      "name": "Test Indian Place",
+      "type": "Indian",
+      "cost": 1,
+      "open": true,
+      "featured": false
+    }
+  ]
+}
