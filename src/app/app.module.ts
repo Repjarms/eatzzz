@@ -10,6 +10,7 @@ import { CartPage } from '../pages/cart/cart';
 
 import { GetEatsites } from '../providers/get-eatsites';
 import { CartService } from '../providers/cart-service';
+import { StripeProvider } from '../providers/stripe-provider';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,6 @@ import { CartService } from '../providers/cart-service';
     CartPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
-    GetEatsites, CartService]
+    GetEatsites, CartService, StripeProvider]
 })
 export class AppModule {}

@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Dish } from '../../models/dish';
 
 import { CartService } from '../../providers/cart-service';
+import { StripeProvider } from '../../providers/stripe-provider';
 
 @Component({
   selector: 'page-cart',
@@ -16,7 +17,7 @@ export class CartPage {
   isListHidden: boolean; // Determines whether to show the ion-list of cart items
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private cartService: CartService) { }
+    private cartService: CartService, private stripeProvider: StripeProvider) { }
 
   ionViewDidLoad() {
     this.contents = this.cartService.getCartContents();
@@ -31,8 +32,14 @@ export class CartPage {
   }
 
   checkOutCart(total) {
-    // TODO: call out to stripe provider and send total
     console.log(`checkOutCart has total of ${total}`);
+    console.log(this.stripeProvider.checkout(total));
+
+    // Empty cart
+
+    this.isListHidden = true;
+    this.totalCost = this.cartService.getCartTotalCost();
+
   }
 
 }
