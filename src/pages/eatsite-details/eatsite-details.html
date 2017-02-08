@@ -12,10 +12,10 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let dish of menu">
+    <button ion-item *ngFor="let dish of menu" (click)="addToCart(dish)">
       <div class="dish-details">
         {{ dish.name }}
-        {{ dish.price }}
+        {{ dish.price | currency:'USD':true }}
         {{ dish.recommended }}
       </div>
     </button>
