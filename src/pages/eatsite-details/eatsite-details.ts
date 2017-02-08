@@ -4,6 +4,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Dish } from '../../models/dish';
 
 import { GetEatsites } from '../../providers/get-eatsites';
+import { CartService } from '../../providers/cart-service';
+
 import { CartPage } from '../cart/cart';
 
 @Component({
@@ -16,7 +18,7 @@ export class EatsiteDetailsPage {
   menu: Dish[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private getEatsites: GetEatsites) {
+    private getEatsites: GetEatsites, private cartService: CartService) {
     this.name = navParams.get('name'); // Get name property from navParams
     this.id = navParams.get('id'); // Get id from navParams
 
@@ -27,8 +29,14 @@ export class EatsiteDetailsPage {
 
   ionViewDidLoad() { }
 
+  // Navigate to checkout cart
   goToCart() {
     this.navCtrl.push(CartPage);
+  }
+
+  // Add selected Dish to cart
+  addToCart(item) {
+    this.cartService.addToCart(item);
   }
 
 }
