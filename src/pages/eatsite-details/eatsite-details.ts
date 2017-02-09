@@ -23,7 +23,7 @@ export class EatsiteDetailsPage {
     this.id = navParams.get('id'); // Get id from navParams
 
     getEatsites.loadMenu().subscribe(menu => {
-      this.menu = menu; // Load array of observables of type Dish[]
+      this.menu = menu;
     });
   }
 

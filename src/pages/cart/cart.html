@@ -13,12 +13,10 @@
     Empty Cart
   </button>
   <ion-list [ngClass]="{'invisible': isListHidden}">
-    <div ion-item *ngFor="let item of contents">
-      <div class="cart-details">
-        {{ item.name }}
-        {{ item.price | currency:'USD':true }}
-      </div>
-    </div>
+    <ion-card class="cart-details" *ngFor="let item of contents" (press)="removeItem($event)">
+      {{ item.name }}
+      {{ item.price | currency:'USD':true }}
+    </ion-card>
   </ion-list>
 
   <div ion-item class="total">

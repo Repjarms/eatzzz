@@ -25,12 +25,14 @@ export class CartPage {
     this.isListHidden = false;
   }
 
+  // Called by selecting the 'Empty cart' button
   emptyCartContents() {
     this.cartService.emptyCartContents();
     this.isListHidden = true;
     this.totalCost = this.cartService.getCartTotalCost();
   }
 
+  // Called by selecting the checkout button
   checkOutCart(total) {
     console.log(`checkOutCart has total of ${total}`);
     console.log(this.stripeProvider.checkout(total));
@@ -39,7 +41,11 @@ export class CartPage {
 
     this.isListHidden = true;
     this.totalCost = this.cartService.getCartTotalCost();
-
   }
 
+  // Called by long press on cart item
+  removeItem(item) {
+    this.cartService.removeFromCart(item); // Remove item from cart and card from DOM
+    this.totalCost = this.cartService.getCartTotalCost(); // Recalculate total cart value
+  }
 }
