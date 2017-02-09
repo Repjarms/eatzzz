@@ -34,6 +34,12 @@ export class CartService {
     this.presentToast('Nice! Item added to cart.');
   }
 
+  // Remove item from cart
+  removeFromCart(item) {
+    this.cart.splice(item, 1);
+    this.presentToast('Item removed from cart');
+  }
+
   // Return the contents of the cart
   // Called by navigation to the cart page
   getCartContents() {
