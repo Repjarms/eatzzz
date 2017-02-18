@@ -23,7 +23,7 @@
     Cart Total: {{ totalCost | currency:'USD':true }}
   </div>
 
-  <button color="dark" (click)="checkOutCart(totalCost)">
+  <button color="dark" (click)="checkOutCart(totalCost, contents)">
     Check Out
   </button>
 

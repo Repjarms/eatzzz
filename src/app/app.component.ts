@@ -9,6 +9,7 @@ import { EatsitesPage } from '../pages/eatsites/eatsites';
 import { EatsiteDetailsPage } from '../pages/eatsite-details/eatsite-details';
 import { RegisterPage } from '../pages/register/register';
 import { CartPage } from '../pages/cart/cart';
+import { CheckoutSuccessPage } from '../pages/checkout-success/checkout-success';
 
 
 
