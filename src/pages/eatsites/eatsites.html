@@ -1,7 +1,6 @@
 <ion-header>
-
   <ion-navbar>
-    <ion-title>eatsites</ion-title>
+    <ion-title class="">Places to Eat</ion-title>
     <button ion-button class="cart" (click)="goToCart()">
       <ion-icon name="basket"></ion-icon>
     </button>
@@ -15,28 +14,40 @@
     (priceFilterUpdate)="priceFilterUpdate($event)">
   </filter-component>
   <ion-list class="site-list">
-    <div *ngFor="let site of eatsites">
+    <ion-card class="eatsite-card" *ngFor="let site of eatsites">
       <button ion-item class="site-list-item" [hidden]="!inFilter(site.type, site.cost)" (click)="goToDetails(site.name)">
-        <div class="site-item-picture">
-          <img [src]="" />
-        </div>
-        <div class="site-item-details">
-          <div class="site-list-item-name">
-            <h2>{{ site.name }}</h2>
-          </div>
-          <div class="site-list-item-info">
-            <div>
-              {{ site.type }}
-            </div>
-            <div>
-              {{ site.cost }}
-            </div>
-            <div>
-              {{ site.open }}
-            </div>
-          </div>
-        </div>
+
+        <!-- TODO: Replace with img [src] to actual sample restaurant -->
+        <img src="http://cdn-jpg.thedailymeal.net/sites/default/files/styles/tdm_slideshow_large/public/images/12-cabobobs-CaboBobsBurritos.jpg?itok=e1oPAiCe" />
+
+        <!-- Eatsite main content -->
+        <ion-card-content>
+
+          <!-- Eatsite Name -->
+          <ion-card-title>{{ site.name }}</ion-card-title>
+
+          <!-- Eatsite Details -->
+          <ion-row>
+            <ion-col>
+              <ion-icon name="cafe"></ion-icon>
+              <p class="inline">{{ site.type }}</p>
+            </ion-col>
+            <ion-col>
+              <ion-icon name="cash"></ion-icon>
+              <p class="inline">{{ site.cost }}</p>
+            </ion-col>
+            <ion-col>
+              <ion-icon name="alarm"></ion-icon>
+              <p class="inline" *ngIf="site.open">
+                Open
+              </p>
+              <p class="inline" *ngIf="!site.open">
+                Closed
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
       </button>
-    </div>
+    </ion-card>
   </ion-list>
 </ion-content>
