@@ -8,9 +8,12 @@ import { EatsiteDetailsPage } from '../pages/eatsite-details/eatsite-details';
 import { RegisterPage } from '../pages/register/register';
 import { CartPage } from '../pages/cart/cart';
 
+import { FilterComponent } from '../components/filter/filter';
+
 import { GetEatsites } from '../providers/get-eatsites';
 import { CartService } from '../providers/cart-service';
 import { StripeProvider } from '../providers/stripe-provider';
+import { FilterProvider } from '../providers/filter-provider';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { StripeProvider } from '../providers/stripe-provider';
     EatsitesPage,
     EatsiteDetailsPage,
     RegisterPage,
-    CartPage
+    CartPage,
+    FilterComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -34,6 +38,6 @@ import { StripeProvider } from '../providers/stripe-provider';
     CartPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
-    GetEatsites, CartService, StripeProvider]
+    GetEatsites, CartService, StripeProvider, FilterProvider]
 })
 export class AppModule {}

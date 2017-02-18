@@ -1,0 +1,28 @@
+<ion-list>
+  <ion-item>
+    <ion-label>Cuisine</ion-label>
+    <ion-select multiple="true" okText="ok" cancelText="cancel" [(ngModel)]="cuisines" (ionCancel)="onCancel()" (ionChange)="updateCuisines()">
+      <ion-option>Indian</ion-option>
+      <ion-option>American</ion-option>
+      <ion-option>Chinese</ion-option>
+      <ion-option>French</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Price</ion-label>
+    <ion-select multiple="true" okText="ok" cancelText="cancel" [(ngModel)]="price" (ionCancel)="onCancel()" (ionChange)="updatePrice()">
+      <ion-option>1</ion-option>
+      <ion-option>2</ion-option>
+      <ion-option>3</ion-option>
+      <ion-option>4</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Open</ion-label>
+    <ion-select okText="ok" cancelText="cancel">
+      <div *ngFor="let item of test">
+        <ion-option value={{item}}>{{item}}</ion-option>
+      </div>
+    </ion-select>
+  </ion-item>
+</ion-list>

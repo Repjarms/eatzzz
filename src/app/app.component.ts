@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
+import { FilterComponent } from '../components/filter/filter';
+
 import { HomePage } from '../pages/home/home';
 import { EatsitesPage } from '../pages/eatsites/eatsites';
 import { EatsiteDetailsPage } from '../pages/eatsite-details/eatsite-details';
