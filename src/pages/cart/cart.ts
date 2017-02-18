@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { CheckoutSuccessPage } from '../checkout-success/checkout-success';
+
 import { Dish } from '../../models/dish';
 
 import { CartService } from '../../providers/cart-service';
@@ -33,14 +35,20 @@ export class CartPage {
   }
 
   // Called by selecting the checkout button
-  checkOutCart(total) {
-    console.log(`checkOutCart has total of ${total}`);
-    console.log(this.stripeProvider.checkout(total));
+  checkOutCart(total: number, contents: Dish[]) {
+
+    console.log(`${contents} is the contents`)
+    this.stripeProvider.checkout(total);
+
+    // Navigate to CheckoutSuccessPage
+    this.navCtrl.push(CheckoutSuccessPage, {total, contents});
 
     // Empty cart
-
     this.isListHidden = true;
+    this.cartService.emptyCartContents();
     this.totalCost = this.cartService.getCartTotalCost();
+
+
   }
 
   // Called by long press on cart item

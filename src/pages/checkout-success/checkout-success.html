@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>checkoutSuccess</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div>Congratulations! You just paid {{ total | currency:'USD':true }}</div>
+  <div>Your order of</div>
+    <ul>
+      <li *ngFor="let item of contents">
+        {{item.name}}
+        {{item.price}}
+      </li>
+    </ul>
+</ion-content>
