@@ -25,6 +25,8 @@ export class CartPage {
     this.contents = this.cartService.getCartContents();
     this.totalCost = this.cartService.getCartTotalCost();
     this.isListHidden = false;
+
+    console.log(this.contents.length);
   }
 
   // Called by selecting the 'Empty cart' button
@@ -46,6 +48,7 @@ export class CartPage {
     // Empty cart
     this.isListHidden = true;
     this.cartService.emptyCartContents();
+    this.contents = [];
     this.totalCost = this.cartService.getCartTotalCost();
 
 
