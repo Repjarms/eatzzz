@@ -7,6 +7,7 @@ import { CartPage } from '../cart/cart';
 import { Eatsite } from '../../models/eatsite';
 
 import { GetEatsites } from '../../providers/get-eatsites';
+import { FilterProvider } from '../../providers/filter-provider';
 
 @Component({
   selector: 'page-eatsites',
@@ -15,6 +16,8 @@ import { GetEatsites } from '../../providers/get-eatsites';
 export class EatsitesPage {
 
   eatsites: Eatsite[]; // Set eatsites property to array of Eatsite
+  cuisines = [];
+  price = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private getEatsites: GetEatsites) {
@@ -23,6 +26,10 @@ export class EatsitesPage {
       getEatsites.loadSites().subscribe(sites => {
         this.eatsites = sites;
       });
+
+      this.cuisines = ['Indian', 'American', 'Chinese', 'French'];
+      this.price = [1,2,3,4];
+
     }
 
   ionViewDidLoad() { }
@@ -34,6 +41,32 @@ export class EatsitesPage {
 
   goToCart() {
     this.navCtrl.push(CartPage);
+  }
+
+  onCancel() {
+    console.log('Cancelled');
+  }
+
+  inFilter(siteType, siteCost) {
+    for (let item in this.cuisines) {
+      if (this.cuisines[item] == siteType) {
+        for(let cost in this.price) {
+          if (this.price[cost] == siteCost) {
+            return true;
+          }
+        }
+      }
+    }
+  }
+
+  cuisineFilterUpdate(e) {
+    this.cuisines = e;
+    console.log(this.cuisines);
+  }
+
+  priceFilterUpdate(e) {
+    this.price = e;
+    console.log(this.price);
   }
 
 }
