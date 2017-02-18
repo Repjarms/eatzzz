@@ -14,7 +14,7 @@
     (priceFilterUpdate)="priceFilterUpdate($event)">
   </filter-component>
   <ion-list class="site-list">
-    <ion-card *ngFor="let site of eatsites">
+    <ion-card class="eatsite-card" *ngFor="let site of eatsites">
       <button ion-item class="site-list-item" [hidden]="!inFilter(site.type, site.cost)" (click)="goToDetails(site.name)">
 
         <!-- TODO: Replace with img [src] to actual sample restaurant -->
