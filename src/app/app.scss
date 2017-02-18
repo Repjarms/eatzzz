@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/v2/theming/
 
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -16,9 +15,21 @@
 // automatically applied to the <body> element in the app.
 
 .fixed-content {
-  background: #387ef5;
+  background: tomato;
 }
 
 .cart { // to be replaced
   float: right;
+}
+
+.toolbar-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  text-align: center;
+  
+  min-height: 70px;
 }
