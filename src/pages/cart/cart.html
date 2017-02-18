@@ -7,8 +7,7 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content padding *ngIf="contents?.length > 0">
   <button item-right color="danger" class="empty-cart-button" (click)="emptyCartContents()">
     Empty Cart
   </button>
@@ -26,5 +25,13 @@
   <button color="dark" (click)="checkOutCart(totalCost, contents)">
     Check Out
   </button>
+
+</ion-content>
+
+<ion-content padding *ngIf="contents?.length == 0">
+
+<div>
+  Your cart is empty! Put something in it.
+</div>
 
 </ion-content>
