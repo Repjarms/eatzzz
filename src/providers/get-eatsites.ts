@@ -9,7 +9,7 @@ import { Dish } from '../models/dish';
 @Injectable()
 export class GetEatsites {
 
-  requestUrl = 'http://localhost:3000'; // Point to backend
+  requestUrl = 'https://eatzzzbackend.mybluemix.net'; // Point to backend
 
   constructor(public http: Http) { }
 
