@@ -1,3 +1,38 @@
 page-eatsite-details {
 
+  .eatsite-header-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+
+    ion-col {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .add-dish {
+    float: right;
+  }
+
+  .inline {
+    display: inline;
+  }
+
+  .menu-section-header {
+    padding: 10px 0 10px 0;
+    color:white;
+    background: #0097B2;
+
+    p {
+      margin: 0 7px 0 7px;
+      padding: 0;
+      font-weight: 500;
+    }
+  }
 }

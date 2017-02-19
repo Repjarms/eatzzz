@@ -11,13 +11,92 @@
 
 
 <ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <!-- 164 x 108-->
+      <img src="http://cdn-jpg.thedailymeal.net/sites/default/files/styles/tdm_slideshow_large/public/images/12-cabobobs-CaboBobsBurritos.jpg?itok=e1oPAiCe"/>
+      <ion-card-title>{{name}}</ion-card-title>
+
+      <!-- Location and Timing Row -->
+      <ion-row class="eatsite-header-row">
+        <ion-col>
+          <div class="eatsite-address">
+              <p>1234 Fake St.</p>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div icon-left clear small>
+            <ion-icon name="pin"></ion-icon>
+            <p class="inline">0.8 Miles</p>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div icon-left clear small>
+            <ion-icon name="clock"></ion-icon>
+            <p class="inline">30-40</p>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <!-- Social and Ratings Row -->
+      <ion-row class="eatsite-header-row">
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>12 Likes</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="star"></ion-icon>
+            <div>4.5 Stars</div>
+          </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            243 Ratings
+          </ion-note>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+
+  <div class="menu-section-header">
+    <p>Recommended for you</p>
+  </div>
+
+  <!-- Recommended menu items -->
   <ion-list>
-    <button ion-item *ngFor="let dish of menu" (click)="addToCart(dish)">
-      <div class="dish-details">
-        {{ dish.name }}
-        {{ dish.price | currency:'USD':true }}
-        {{ dish.recommended }}
-      </div>
-    </button>
+    <div *ngFor="let dish of menu">
+      <button ion-item *ngIf="dish.recommended" (click)="addToCart(dish)">
+        <ion-row class="dish-details">
+          <ion-col>{{ dish.name }}</ion-col>
+          <ion-col>{{ dish.price | currency:'USD':true }}</ion-col>
+          <ion-col>
+            <ion-icon name="add" class="add-dish"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </button>
+    </div>
+  </ion-list>
+
+  <div class="menu-section-header">
+    <p>Other Items</p>
+  </div>
+
+  <!-- Other Menu items -->
+  <ion-list>
+    <div *ngFor="let dish of menu">
+      <button ion-item *ngIf="!dish.recommended" (click)="addToCart(dish)">
+        <ion-row class="dish-details">
+          <ion-col>{{ dish.name }}</ion-col>
+          <ion-col>{{ dish.price | currency:'USD':true }}</ion-col>
+          <ion-col>
+            <ion-icon name="add" class="add-dish"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </button>
+    </div>
   </ion-list>
 </ion-content>
