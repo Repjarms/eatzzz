@@ -11,13 +11,27 @@
 
 
 <ion-content padding>
-  <ion-list>
-    <button ion-item *ngFor="let dish of menu" (click)="addToCart(dish)">
-      <div class="dish-details">
-        {{ dish.name }}
-        {{ dish.price | currency:'USD':true }}
-        {{ dish.recommended }}
-      </div>
-    </button>
-  </ion-list>
+  <ion-card>
+    <ion-card-content>
+      <!-- 164 x 108-->
+      <img src="http://cdn-jpg.thedailymeal.net/sites/default/files/styles/tdm_slideshow_large/public/images/12-cabobobs-CaboBobsBurritos.jpg?itok=e1oPAiCe"/>
+      <ion-card-title>{{name}}</ion-card-title>
+    </ion-card-content>
+  </ion-card>
+    <ion-list>
+      <button ion-item *ngFor="let dish of menu" (click)="addToCart(dish)">
+        <ion-row class="dish-details">
+          <ion-col>{{ dish.name }}</ion-col>
+          <ion-col>{{ dish.price | currency:'USD':true }}</ion-col>
+          <ion-col *ngIf="dish.recommended">
+            <p class="recommended-dish">
+              Recommended for you!
+            </p>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="add" class="add-dish"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </button>
+    </ion-list>
 </ion-content>
