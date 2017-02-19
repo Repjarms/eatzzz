@@ -9,10 +9,17 @@
 </ion-header>
 
 <ion-content padding>
-  <filter-component
-    (cuisineFilterUpdate)="cuisineFilterUpdate($event)"
-    (priceFilterUpdate)="priceFilterUpdate($event)">
-  </filter-component>
+  <div class="filter-container">
+    <button (click)="toggleFilterVisible()">
+      <p *ngIf="filterVisible">Hide Filter</p>
+      <p *ngIf="!filterVisible">Show Filter</p>
+    </button>
+    <filter-component
+      (cuisineFilterUpdate)="cuisineFilterUpdate($event)"
+      (priceFilterUpdate)="priceFilterUpdate($event)"
+      [hidden]="!filterVisible">
+    </filter-component>
+  </div>
   <ion-list class="site-list">
     <ion-card class="eatsite-card" *ngFor="let site of eatsites">
       <button ion-item class="site-list-item" [hidden]="!inFilter(site.type, site.cost)" (click)="goToDetails(site.name)">

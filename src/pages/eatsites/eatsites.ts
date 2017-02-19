@@ -18,6 +18,7 @@ export class EatsitesPage {
   eatsites: Eatsite[]; // Set eatsites property to array of Eatsite
   cuisines = [];
   price = [];
+  filterVisible: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private getEatsites: GetEatsites) {
@@ -29,6 +30,7 @@ export class EatsitesPage {
 
       this.cuisines = ['Indian', 'American', 'Chinese', 'French'];
       this.price = [1,2,3,4];
+      this.filterVisible = false;
 
     }
 
@@ -67,6 +69,10 @@ export class EatsitesPage {
   priceFilterUpdate(e) {
     this.price = e;
     console.log(this.price);
+  }
+
+  toggleFilterVisible() {
+    this.filterVisible = !this.filterVisible;
   }
 
 }
