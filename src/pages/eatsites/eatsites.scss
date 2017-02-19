@@ -2,6 +2,18 @@ page-eatsites {
 
   .filter-container {
     width: 100%;
+    text-align: center;
+
+    button {
+      border: 0;
+      padding: 0;
+      background: none;
+    }
+
+    p {
+      padding: 0;
+      margin-bottom: 15px;
+    }
   }
 
   .inline {
