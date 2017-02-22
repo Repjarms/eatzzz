@@ -8,21 +8,51 @@
 
 
 <ion-content padding *ngIf="contents?.length > 0">
-  <button item-right color="danger" class="empty-cart-button" (click)="emptyCartContents()">
+  <button ion-button color="danger" class="empty-button" (click)="emptyCartContents()">
     Empty Cart
   </button>
+
+  <div class="cart-header">Here's what we've got for you</div>
+
+  <ion-card class="cart-header-message">
+    <ion-card-content>
+      Your order is almost ready to go! All what you need to do now is press the checkout button, sit back, and relax while we get cooking.
+    </ion-card-content>
+  </ion-card>
+
   <ion-list [ngClass]="{'invisible': isListHidden}">
-    <ion-card class="cart-details" *ngFor="let item of contents" (press)="removeItem($event)">
-      {{ item.name }}
-      {{ item.price | currency:'USD':true }}
-    </ion-card>
+    <ion-item-sliding *ngFor="let item of contents">
+      <ion-item>
+        <ion-row>
+          <ion-col class="item-name">
+            {{ item.name }}
+          </ion-col>
+          <ion-col class="price">
+            {{ item.price | currency:'USD':true }}
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="removeItem($event)">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+    <ion-item>
+      <ion-row>
+        <ion-col class="total">
+          Cart Total:
+        </ion-col>
+        <ion-col class="total price">
+          {{ totalCost | currency:'USD':true }}
+        </ion-col>
+      </ion-row>
+    </ion-item>
   </ion-list>
 
-  <div ion-item class="total">
-    Cart Total: {{ totalCost | currency:'USD':true }}
-  </div>
 
-  <button color="dark" (click)="checkOutCart(totalCost, contents)">
+
+  <button class="checkout-button" ion-button color="primary" (click)="checkOutCart(totalCost, contents)">
     Check Out
   </button>
 
@@ -30,8 +60,8 @@
 
 <ion-content padding *ngIf="contents?.length == 0">
 
-<div>
-  Your cart is empty! Put something in it.
-</div>
+  <div>
+    Your cart is empty! Put something in it.
+  </div>
 
 </ion-content>
