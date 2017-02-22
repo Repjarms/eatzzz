@@ -3,4 +3,44 @@ page-cart {
   .invisible {
     display:none;
   }
+
+  ion-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .cart-header {
+    clear: both;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: darken(tomato, 30%); // figure out color for this
+  }
+
+  .cart-header-message {
+    flex: 0 1 100%;
+  }
+
+  .item-name {
+    width: 90%;
+  }
+
+  .price {
+    text-align: right;
+  }
+
+  .total {
+    font-weight: 700;
+  }
+
+  .empty-button {
+    flex: 0 1 25%;
+    float: right;
+    margin-bottom: 15px;
+  }
+
+  .checkout-button {
+    width: 100%;
+    margin-top: 15px;
+  }
 }

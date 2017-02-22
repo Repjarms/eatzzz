@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class StripeProvider {
 
-  requestUrl = 'http://localhost:3000';
+  requestUrl = 'https://eatzzzbackend.mybluemix.net';
 
   constructor(public http: Http) { }
 
