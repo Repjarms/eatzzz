@@ -1,15 +1,15 @@
 page-eatsites {
 
+  button {
+    border: 0;
+    background: none;
+    padding: 0;
+    margin: 0;
+  }
+
   .filter-container {
     width: 100%;
     text-align: center;
-
-    button {
-      border: 0;
-      padding: 0;
-      margin: 0;
-      background: none;
-    }
 
     p {
       padding: 0;
@@ -22,6 +22,58 @@ page-eatsites {
   }
 
   .eatsite-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .eatsite-card-button {
+    height: 250px;
+    border: 0;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .eatsite-card-content {
+    flex: 0 1 100%;
+
+    background-color: rgba(0,0,0,0.5);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+  }
+
+  .eatsite-title {
+    flex: 0 1 100%;
+    font-size: 2.0em;
+
+    text-align:center;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .eatsite-details {
+    flex: 0 1 100%;
+    margin: 0 10% 0 10%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+
+    p {
+      color: white;
+    }
 
   }
 
